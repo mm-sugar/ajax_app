@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  def  index #indexアクションを定義した
+  def index #indexアクションを定義した
     @posts = Post.all.order(id: "DESC") #すべてのレコードを＠postに代入
   end
 
@@ -9,12 +9,12 @@ class PostsController < ApplicationController
     redirect_to action: :index
   end
 
-  def chacked
+  def checked
     post = Post.find(params[:id])
     if post.checked
-      post.update(chacked: false)
+      post.update(checked: false)
     else
-      post.update(checked: ture)
+      post.update(checked: true)
     end
 
     item = Post.find(params[:id])
